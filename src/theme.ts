@@ -17,6 +17,49 @@ export const theme = extendTheme({
       300: '#C7CBCF',
       400: '#6B7076',
       500: '#3B3B3B',
-    }
-  }
+    },
+  },
+
+  components: {
+    Button: {
+      baseStyle: {
+        fontWeight: 'normal',
+        lineHeight: 6,
+        px: 4,
+        rounded: '3xl',
+      },
+
+      variants: {
+        solid: {
+          bg: 'main.primary',
+          color: 'white',
+          _hover: {
+            bgColor: '#ffb1c5',
+          },
+        },
+
+        ghost: {
+          bg: 'transparent',
+          color: 'main.primary',
+          _hover: {
+            bgColor: 'fills.blue',
+          },
+          _focus: {
+            bgColor: 'fills.blue',
+          },
+        },
+      },
+
+      sizes: {
+        md: {
+          h: 8,
+        },
+      },
+
+      defaultProps: {
+        size: 'md',
+        variant: 'solid',
+      },
+    },
+  },
 })
