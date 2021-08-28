@@ -24,6 +24,7 @@
   "devDependencies": {
     "@babel/preset-typescript": "^7.15.0",
     "@chakra-ui/cli": "^1.5.0",
+    "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@types/react": "17.0.19",
@@ -36,6 +37,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "jest": "^27.1.0",
     "prettier": "^2.3.2",
-    "typescript": "4.4.2"
+    "typescript": "4.4.2",
+    "url-loader": "^4.1.1"
   }
 }
