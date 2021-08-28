@@ -10,7 +10,6 @@ function App({ Component, pageProps }: AppProps) {
 
       <Grid
         as="main"
-        py={10}
         px={4}
         gridTemplateColumns="1fr min(1035px, 100%) 1fr"
         sx={{ '& > *': { gridColumn: 2 } }}
