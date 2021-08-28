@@ -30,7 +30,7 @@ export const theme = extendTheme({
       },
 
       variants: {
-        solid: {
+        active: {
           bg: 'main.primary',
           color: 'white',
           _hover: {
@@ -58,7 +58,7 @@ export const theme = extendTheme({
 
       defaultProps: {
         size: 'md',
-        variant: 'solid',
+        variant: 'ghost',
       },
     },
 
