@@ -25,6 +25,7 @@ function App({ Component, pageProps }: AppProps) {
         <Grid
           as="main"
           px={4}
+          pb={10}
           gridTemplateColumns="1fr min(1035px, 100%) 1fr"
           sx={{ '& > *': { gridColumn: 2 } }}
         >
