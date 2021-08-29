@@ -24,3 +24,14 @@ export type Transactions = {
   itemsTotal: number
   results: DayTransactions[]
 }
+
+export enum TransactionsTypes {
+  PAGAMENTO_REALIZADO = 'Pagamento Realizado',
+  PAGAMENTO_RECEBIDO = 'Pagamento Recebido',
+  PAGAMENTO_ESTORNADO = 'Pagamento Estornado',
+  PAGAMENTO_AGENDADO = 'Pagamento Agendado',
+  TRANSFERENCIA_REALIZADA = 'Transferência Realizada',
+  TRANSFERENCIA_RECEBIDA = 'Transferência Recebida',
+  TRANSFERENCIA_ESTORNADA = 'Transferência Estornada',
+  TRANSFERENCIA_AGENDADA = 'Transferência Agendada',
+}
