@@ -35,3 +35,5 @@ export enum TransactionsTypes {
   TRANSFERENCIA_ESTORNADA = 'Transferência Estornada',
   TRANSFERENCIA_AGENDADA = 'Transferência Agendada',
 }
+
+export type Filter = 'all' | 'income' | 'outcome' | 'future'
