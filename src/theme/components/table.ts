@@ -9,7 +9,7 @@ export const Table: ComponentMultiStyleConfig = {
         px: 0,
         py: 6,
         borderBottom: 'none',
-        fontSize: 'sm',
+        fontSize: 'xs',
         fontWeight: 'normal',
         textTransform: 'initial',
         color: 'grays.400',
