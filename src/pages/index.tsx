@@ -1,11 +1,13 @@
 import { Filter } from '../components/filter'
 import { Table } from '../components/table'
+import { TableLoader } from '../components/loader'
 import { useBalance } from '../hooks/useBalance'
 
 export default function Home() {
-  const { transactions, filter, onFilterChange, onQueryChange } = useBalance({
-    filter: 'all',
-  })
+  const { transactions, filter, onFilterChange, onQueryChange, isLoading } =
+    useBalance({
+      filter: 'all',
+    })
 
   return (
     <>
@@ -14,7 +16,8 @@ export default function Home() {
         onTypeChange={onFilterChange}
         onQueryChange={onQueryChange}
       />
-      <Table data={transactions} />
+
+      {isLoading ? <TableLoader /> : <Table data={transactions} />}
     </>
   )
 }

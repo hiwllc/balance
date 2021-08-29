@@ -41,6 +41,7 @@ export function Table({ data }: Props) {
               {index === 0 ? (
                 <>
                   <Th>Tipo de transação</Th>
+
                   <Th fontWeight="700" fontSize="xs" color="main.primary">
                     Data
                   </Th>
