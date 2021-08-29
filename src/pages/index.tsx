@@ -1,7 +1,8 @@
+import { Table } from '../components/table'
+import { useBalance } from '../hooks/useBalance'
+
 export default function Home() {
-  return (
-    <div>
-      <p>hello world!</p>
-    </div>
-  )
+  const { data } = useBalance()
+
+  return <Table data={data.results} />
 }
