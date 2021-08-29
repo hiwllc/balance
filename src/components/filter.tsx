@@ -5,10 +5,11 @@ import { Search } from './search'
 
 type Props = {
   onTypeChange: (value: TypeFilter) => void
+  onQueryChange: (value: string) => void
   filter: TypeFilter
 }
 
-export const Filter = ({ onTypeChange, filter }: Props) => (
+export const Filter = ({ onTypeChange, onQueryChange, filter }: Props) => (
   <HStack spacing={7} py={10}>
     <Button
       onClick={() => onTypeChange('all')}
@@ -35,6 +36,6 @@ export const Filter = ({ onTypeChange, filter }: Props) => (
       Futuro
     </Button>
 
-    <Search />
+    <Search onChange={onQueryChange} />
   </HStack>
 )

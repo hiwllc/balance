@@ -5,6 +5,7 @@ import { DayTransactions, Transaction, Filter } from '../types'
 
 type UseFilter = {
   filter: Filter
+  query?: string
 }
 
 function orderByNewest(transactions: DayTransactions[] = []) {
@@ -28,17 +29,25 @@ function getFutureTransactions(transactions: Transaction[]) {
   return transactions.filter(transaction => Boolean(transaction.scheduled))
 }
 
-export function useBalance({ filter }: UseFilter) {
+function searchTransactions(transactions: Transaction[], query: string) {
+  return transactions.filter(transaction =>
+    transaction.actor.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+  )
+}
+
+export function useBalance({ filter, query }: UseFilter) {
   const { data, isLoading, isError } = useQuery('GET_BALANCE', () =>
     fetchBalance()
   )
   const [keyword, setKeyword] = useState(filter)
+  const [term, setTerm] = useState(query)
 
   const onFilterChange = (filter: Filter) => setKeyword(filter)
+  const onQueryChange = (query: string) => setTerm(query)
 
   const ordered = useMemo(() => orderByNewest(data?.results), [data])
 
-  const transactionFiltered = useMemo(() => {
+  const transactions = useMemo(() => {
     if (keyword === 'income') {
       const filtered = ordered.map(trx => ({
         ...trx,
@@ -69,10 +78,22 @@ export function useBalance({ filter }: UseFilter) {
     return ordered
   }, [ordered, keyword])
 
-  const results = useMemo(() => transactionFiltered, [transactionFiltered])
+  const results = useMemo(() => {
+    if (term) {
+      const filtered = transactions.map(trx => ({
+        ...trx,
+        items: searchTransactions(trx.items, term),
+      }))
+
+      return removeEmptyTransactions(filtered)
+    }
+
+    return transactions
+  }, [term, transactions])
 
   return {
     onFilterChange,
+    onQueryChange,
     transactions: results,
     isLoading,
     isError,
