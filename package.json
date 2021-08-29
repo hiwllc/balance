@@ -10,7 +10,7 @@
     "test": "jest --passWithNoTests",
     "test:watch": "yarn test --watch --passWithNoTests",
     "test:ci": "yarn test --collect-coverage",
-    "postinstall": "./node_modules/.bin/chakra-cli tokens ./src/theme.ts"
+    "postinstall": "./node_modules/.bin/chakra-cli tokens ./src/theme/index.ts"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.6",
