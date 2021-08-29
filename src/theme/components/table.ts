@@ -1,7 +1,7 @@
 import { ComponentMultiStyleConfig } from '@chakra-ui/react'
 
 export const Table: ComponentMultiStyleConfig = {
-  parts: ['th', 'tbody', 'td', 'tr'],
+  parts: ['th', 'tbody', 'thead', 'td', 'tr'],
 
   variants: {
     simple: {
@@ -47,6 +47,14 @@ export const Table: ComponentMultiStyleConfig = {
         _last: {
           '& td': {
             pb: 7,
+          },
+        },
+      },
+
+      thead: {
+        _first: {
+          '& th': {
+            pt: 0,
           },
         },
       },
