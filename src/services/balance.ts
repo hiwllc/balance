@@ -1,6 +1,9 @@
 import { Transactions } from '../types'
 
-const BALANCE_URI = 'http://localhost:3000/api/balance'
+const BALANCE_URI =
+  process.env.NODE_ENV !== 'production'
+    ? 'http://localhost:3000/api/balance'
+    : `/api/balance`
 
 async function request<T>(
   url: RequestInfo,
